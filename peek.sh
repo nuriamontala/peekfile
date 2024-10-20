@@ -2,6 +2,6 @@
 
 input_file=$1
 
-head -n 3 "$input_file"
+head -n $2 "$input_file"
 echo "..."
-tail -n 3 "$input_file"
+tail -n $2 "$input_file"
