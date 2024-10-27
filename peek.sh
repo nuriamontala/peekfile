@@ -1,7 +1,12 @@
 #!/bin/bash
-
-input_file=$1
-
-head -n $2 "$input_file"
+       
+if [[ -z $2 ]]
+ then 
+  lines=3
+ else
+  lines=$2
+fi
+       
+head -n $lines $1
 echo "..."
-tail -n $2 "$input_file"
+tail -n $lines $1
