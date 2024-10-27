@@ -6,7 +6,13 @@ if [[ -z $2 ]]
  else
   lines=$2
 fi
-       
-head -n $lines $1
-echo "..."
-tail -n $lines $1
+
+if [[ $(cat $1 | wc -l) -le $((2 * $lines)) ]]
+ then
+   cat $1
+else
+   echo Warning: The file contains more than $lines lines
+   head -n $lines $1
+   echo "..."
+   tail -n $lines $1
+fi
